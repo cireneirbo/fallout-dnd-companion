@@ -1,7 +1,6 @@
 const axios = require("axios"); 
 const cheerio = require("cheerio"); 
  
-
 async function getArmors(URL) {
 
   // define equipment arrays with first index having each category for the array indexes
@@ -35,16 +34,13 @@ async function getArmors(URL) {
     
   }); 
   
-
   return armorSets;
 }
 
 async function getPowerArmors(URL) {
 
-  // define equipment arrays with first index having each category for the array indexes
-  const powerArmorSets = [
-    ["Name", "Radiation", "Price", "AC", "Carry Weight"],
-  ];
+  // define empty power armor array
+  const powerArmorSets = [];
 
   // grab html data
   const pageHTML = await axios.get(URL);
@@ -52,40 +48,39 @@ async function getPowerArmors(URL) {
   // prepare cheerio with data
   const $ = cheerio.load(pageHTML.data); 
 
-  // hold temp data for each armor set
-  let stats = [];
+  // retrieving the power armor stats data 
+  $("table.d20 td").each((index, element) => { 
+    
+    const powerArmorStat = $(element).text(); 
 
-  // retrieving the equipment data 
-  $("table.5e td").each((index, element) => { 
+    powerArmorSets.push(powerArmorStat);
+
+  }); 
+
+  // retrieving the power armor names data
+  $("table.d20 th").each((index, element) => { 
     
-    const powerArmor = $(element).text(); 
-    if(stats.length < 6) {
-      // add stat to the sub-array
-      stats.push(powerArmor);
-    } else {
-      // push contents to armor and begin an empty array
-      powerArmorSets.push(stats);
-      stats = [];
-      stats.push(powerArmor);
-      
-    }
-    
+    const powerArmorName = $(element).text(); 
+
+    powerArmorSets.push(powerArmorName);
+
   }); 
   
-
-  return armorSets;
+  return powerArmorSets;
 }
 
 async function main() {
 
   const armorURLToScrape = "https://www.dandwiki.com/wiki/Armor_(5e_fallout_Campaign_Setting)";
+  const powerArmorURLToScrape = "https://www.dandwiki.com/wiki/Power_Armor_(5e_fallout_Campaign_Setting)";
 
   const armors = await getArmors(armorURLToScrape);
-
+  const powerArmors = await getPowerArmors(powerArmorURLToScrape);
    
 
     // logging the crawling results 
-	  console.log([...armors]); 
+	  //console.log([...armors]); 
+    //console.log([...powerArmors]); 
 
     // do dark business here!
   
