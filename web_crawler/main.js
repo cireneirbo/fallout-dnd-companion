@@ -39,6 +39,43 @@ async function getArmors(URL) {
   return armorSets;
 }
 
+async function getPowerArmors(URL) {
+
+  // define equipment arrays with first index having each category for the array indexes
+  const powerArmorSets = [
+    ["Name", "Radiation", "Price", "AC", "Carry Weight"],
+  ];
+
+  // grab html data
+  const pageHTML = await axios.get(URL);
+
+  // prepare cheerio with data
+  const $ = cheerio.load(pageHTML.data); 
+
+  // hold temp data for each armor set
+  let stats = [];
+
+  // retrieving the equipment data 
+  $("table.5e td").each((index, element) => { 
+    
+    const powerArmor = $(element).text(); 
+    if(stats.length < 6) {
+      // add stat to the sub-array
+      stats.push(powerArmor);
+    } else {
+      // push contents to armor and begin an empty array
+      powerArmorSets.push(stats);
+      stats = [];
+      stats.push(powerArmor);
+      
+    }
+    
+  }); 
+  
+
+  return armorSets;
+}
+
 async function main() {
 
   const armorURLToScrape = "https://www.dandwiki.com/wiki/Armor_(5e_fallout_Campaign_Setting)";
