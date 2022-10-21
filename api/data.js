@@ -51,7 +51,19 @@ export default function returnEquipment() {
   const medicalSupplies = [];
   const weaponAndArmorMods = []; 
   const junkAndGears = [];
-  const currencies = [];
+  const currencies = [
+    ["Currency Name to Compare Other Currencies Against", "Bottlecap",	"Clean Water",	"Brotherhood Script",	"Denarius",	"Aureus",	"$5 NCR",	"$20 NCR", "$100 NCR"],
+    ["Cap(s)",	"1",	"1/20",	"1/10",	"1/4",	"1/100",	"1/2",	"1/8",	"1/40"],
+    ["Clean Water",	"20",	"1",	"1/2",	"5",	"1/5",	"4",	"2.5",	"1/2"],
+    ["Brotherhood Script",	"10",	"2",	"1",	"2.5",	"1/10",	"5",	"1.25",	"1/4"],
+    ["Denarius",	"4",	"1/5",	"2.5",	"1",	"1/25",	"2",	"1/2",	"1/20"],
+    ["Aureus",	"100",	"5",	"10",	"25",	"1",	"50",	"12.5",	"2.5"],
+    ["5$ NCR",	"2",	"1/10",	"1/2",	"1/2",	"1/50",	"1",	"1/4",	"1/20"],
+    ["20$ NCR",	"8",	"2/5",	"4/5",	"100",	"2",	"4",	"1",	"1/5"],
+    ["100$ NCR",	"40",	"2",	"4",	"10",	"2/5",	"20",	"5",	"1"],
+    ["GP",	"2",	"1/10",	"1/5",	"1/2",	"1/50",	"1",	"1/4",	"1/20"],
+    
+  ];
 
-  return [armors, powerArmors, weapons, medicalSupplies, weaponAndArmorMods, junkAndGears];
+  return [armors, powerArmors, weapons, medicalSupplies, weaponAndArmorMods, junkAndGears, currencies];
 }
