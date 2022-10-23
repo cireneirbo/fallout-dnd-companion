@@ -46,6 +46,7 @@ export default function returnEquipment() {
     ["Ranger Sequoia", "90", "3d10", "50/200", "4 lb.", ".45-75 Gov", "5", "Holdout", "NV"],
     ["Zip Gun", "45", "1d6", "60/120", "1 lb.", "10mm", "1", "None", "2(Cut), Tactics"],
     ["Needler Pistol", "60", "2d8+1", "50/150", "4 lb.", "Hypo Cartridge", "10", "None", "2, Tactics"],
+    
 
   ];
   const medicalSupplies = [];
