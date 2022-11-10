@@ -40,13 +40,9 @@ function splitArrayIntoSubArrays(num) {
   // the number of columns in the original data to create sub-arrays with
   const numberOfColumns = num;
 
-  // empty array for sub arrays to be pushed to
-  let splitArrays = [];
-
   //hold the temporary array before adding to splitArrays
   let tempSubArray = [];
 
-  
   // cycle through all elements of singleArray
   for(let i = 0; i < singleArray.length; i++) {
 
@@ -55,27 +51,20 @@ function splitArrayIntoSubArrays(num) {
 
     // add tempSubArray to splitArrays every numberOfColumns
     if(tempSubArray.length == numberOfColumns) {
-      splitArrays.push(tempSubArray);
+      //write each line to output.txt to be used for js arrays
+      fs.appendFileSync('output.txt', "['" + tempSubArray[0] + "', '" + tempSubArray[1] + "', '" + tempSubArray[2] + "', '" + tempSubArray[3] + "', '" + tempSubArray[4] + "', '" + tempSubArray[5] + "', '" + tempSubArray[6] + "', '" + tempSubArray[7] + "', '" + tempSubArray[8] + "'],\n");
       tempSubArray = [];
     }
 
   }
 
-  return splitArrays;
-
 }
 
 function processDataQuickly () {
   
-  
-  
-  
+  //createArrayFromRawData(rawDataString);
 
-  console.log(createArrayFromRawData(rawDataString));
-
-  console.log(splitArrayIntoSubArrays(numberOfColumnsInData));
-  outputArray = splitArrayIntoSubArrays(numberOfColumnsInData);
-  fs.appendFileSync('output.js', outputArray);
+  splitArrayIntoSubArrays(numberOfColumnsInData);
 
 }
 
