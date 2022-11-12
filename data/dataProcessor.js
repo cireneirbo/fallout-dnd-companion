@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-let rawDataString = `
+let rawWeaponsData = `
     Alien Atomizer	5500			4d6		45/365			2 lb.	Alien Power Module			20		p			3
     Alien Blaster	4000			4d6		30/240			2 lb.	Alien Power Module			10		p			3, 4, 76
     Laser Pistol	65			1d4+1		100/150			3 lb.	Small Energy Cell			30		p			1, 2, Tactics, 3, NV, 4, 76
@@ -32,7 +32,7 @@ function createArrayFromRawData(rawData) {
   return processedData;
 }
 
-function splitArrayIntoSubArrays(num) {
+function splitArrayIntoSubArrays(num, rawDataString) {
 
   // all processed data in a single array, needing to be put into an array with sub arrays
   let singleArray = createArrayFromRawData(rawDataString);
@@ -64,7 +64,7 @@ function processDataQuickly () {
   
   //createArrayFromRawData(rawDataString);
 
-  splitArrayIntoSubArrays(numberOfColumnsInData);
+  splitArrayIntoSubArrays(numberOfColumnsInData, rawWeaponsData);
 
 }
 
