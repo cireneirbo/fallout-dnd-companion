@@ -21,7 +21,7 @@ export default function returnEquipment() {
     ["X-02", 120, 1000, "+4", 1250],
     ["X-03 'Hellfire'", 140, 1200, "+5", 1500], 		
   ];
-  const weapons = [
+  const ballisticPistols = [
     ["Name", "Cost (Caps)", "Damage", "Range", "Weight", "Ammo", "Mag", "Properties", "Appearances"],
     [".22 Pistol (Silenced)", "25", "1d4-1", "40/80", "3 lb.", ".22 Caliber", "16", "Silenced, Holdout", "NV"],
     [".32 Revolver", "30", "1d6", "30/120", "1.5 lb.", ".32 Magnum", "5", "None", "3"],
@@ -45,7 +45,18 @@ export default function returnEquipment() {
     ["Police Pistol", "75", "1d12", "90/120", "3 lb.", ".357 Magnum", "6", "Holdout", "NV"],
     ["Ranger Sequoia", "90", "3d10", "50/200", "4 lb.", ".45-75 Gov", "5", "Holdout", "NV"],
     ["Zip Gun", "45", "1d6", "60/120", "1 lb.", "10mm", "1", "None", "2(Cut), Tactics"],
-    ["Needler Pistol", "60", "2d8+1", "50/150", "4 lb.", "Hypo Cartridge", "10", "None", "2, Tactics"],
+    ["Needler Pistol", "60", "2d8+1", "50/150", "4 lb.", "Hypo Cartridge", "10", "None", "2, Tactics"]
+  ];
+  const pistols = [];
+  const explosivePistols = [];
+  const meleePistols = [];
+  
+  
+  const weapons = [
+    ballisticPistols,
+    pistols,
+    explosivePistols,
+    meleePistols,  
     
 
   ];
